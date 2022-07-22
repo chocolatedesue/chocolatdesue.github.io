@@ -2,6 +2,22 @@
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
+# personal setting
+
+## 1. search engine 
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
+
+## 2. save the image
+post_asset_folder: true
+marked:
+  prependRoot: true
+  postAsset: true
+
+
 # Site
 title: Ciallo World
 subtitle: ''
@@ -56,10 +72,7 @@ prismjs:
   line_number: true
   tab_replace: ''
 
-post_asset_folder: true
-marked:
-  prependRoot: true
-  postAsset: true
+
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -98,6 +111,9 @@ pagination_dir: page
 include:
 exclude:
 ignore:
+
+
+
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
