@@ -97,7 +97,7 @@ open_graph:
 menu:
   home: / || fa fa-home
   #about: /about/ || fa fa-user
-  #tags: /tags/ || fa fa-tags
+  # tags: /tags/ || fa fa-tags
   # categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || fa fa-calendar
@@ -554,9 +554,9 @@ quicklink:
   archive: true
 
   # Default (true) will initialize quicklink after the load event fires.
-  delay: true
+  delay: false
   # Custom a time in milliseconds by which the browser must execute prefetching.
-  timeout: 100
+  timeout: 10
   # Default (true) will attempt to use the fetch() API if supported (rather than link[rel=prefetch]).
   priority: true
 

@@ -11,6 +11,9 @@
 cd hexo-site
 npm install hexo-theme-next
 
+## trouble shotting 
+1. ubuntu npm 版本问题 https://blog.csdn.net/zhongyuemengxiang/article/details/122510536
+
 ## 部署
 npm install hexo-cli -g
 hexo init blog
