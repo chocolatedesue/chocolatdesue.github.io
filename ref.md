@@ -1,5 +1,9 @@
 ## 添加图片
-1. https://cloud.tencent.com/developer/article/1736563
+1. https://hexo.io/zh-cn/docs/asset-folders
+2. https://github.com/hexojs/hexo-renderer-marked
+
+## latex
+1. https://theme-next.js.org/docs/third-party-services/math-equations.html
 
 ## 本地搜索
 1. https://zhuanlan.zhihu.com/p/266119565
