@@ -4,6 +4,9 @@
 
 ## latex
 1. https://theme-next.js.org/docs/third-party-services/math-equations.html
+> npm un hexo-renderer-marked <br>
+> npm i hexo-renderer-pandoc<br>
+> sudo apt install pandoc -y 
 
 ## 本地搜索
 1. https://zhuanlan.zhihu.com/p/266119565
