@@ -31,17 +31,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Test_blog</title>
-    <url>/2022/07/21/test-blog/</url>
-    <content><![CDATA[<h2 id="hello-world">Hello world</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;hello_world&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="test-image">test image</h2>
-<figure>
-<img src="try.jpg" alt="" /><figcaption>sad</figcaption>
-</figure>
-]]></content>
-  </entry>
-  <entry>
     <title>第一次训练赛 4h</title>
     <url>/2022/09/03/pratise/</url>
     <content><![CDATA[<blockquote>
@@ -57,13 +46,25 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Test_blog</title>
+    <url>/2022/07/21/test-blog/</url>
+    <content><![CDATA[<h2 id="hello-world">Hello world</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;hello_world&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="test-image">test image</h2>
+<figure>
+<img src="try.jpg" alt="" /><figcaption>sad</figcaption>
+</figure>
+]]></content>
+  </entry>
+  <entry>
     <title>Cf-Dp</title>
     <url>/2022/09/15/test/</url>
     <content><![CDATA[<h2 id="dp学习">dp学习</h2>
 <h3 id="a1.-burenka-and-traditions-easy-version"><a href="https://codeforces.com/problemset/problem/1718/A1">A1. Burenka and Traditions (easy version)</a></h3>
 <ol type="1">
 <li>维护多个操作信息， 单纯的贪心只能维护一组信息(<strong><em>如何想到dp</em></strong>)</li>
-<li>dp[i][j]代表前i-1个数字处理为0，且最后一个数字为j的<strong>最少</strong>方案数 &gt; dp一定要可以求出答案，在过程处理中记得考虑保留答案信息</li>
+<li>dp[i][j]代表前i-1个数字处理为0，且最后一个数字为j的<strong>最少</strong>方案数<br />
+&gt; dp一定要可以求出答案，在过程处理中记得考虑保留答案信息</li>
 </ol>
 ]]></content>
       <tags>
