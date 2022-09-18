@@ -1,16 +1,18 @@
 ---
 title: cf-binary_search with monotonicity
 date: 2022-09-18 04:37:08
-tags: [algorithm,bs,mono,two_index]
+tags: [algorithm,bs,mono,two_point]
 ---
 
 ## 二分相关算法学习
 ### [C. Binary String](https://codeforces.ml/contest/1680/problem/C)
 1. 边界看情况 开大开小或正好(out of boundary)
 2. prefix 和 suffix 数组含义和操作(不能转换)
+3. 初始值的讨论？ 不能无脑INF
+
 
 <details>
-   <summary>**code**</summary>
+   <summary>**code1_binary_search**</summary>
    
 ```c++
 
@@ -103,7 +105,72 @@ int main(){
 }
 ```
 
+</details>
+<details>
+<summary>**code2_two_point**</summary>
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+typedef pair<ll,ll>PII;
+#define endl '\n'
+#define io ios::sync_with_stdio(false),cin.tie(0)
+const ll INF = 0x3f3f3f3f;
+
+ll n,m,k,T;
+const int N = 2e5+10;
+string s;
+int pre[N];
+
+void solve(){
+    cin >> s;
+    s = " "+s;
+    const ll len = s.size();
+    ll l = 0, r=0;
+    // ll ans = 1ll<<60;
+
+    for (int i = 1;i<=len;++i){
+        pre[i] = pre[i-1] +( s[i]=='1');
+    }
+
+    // 用合适的初值 避免讨论复杂的初始情况(移除所有的数)
+    ll ans = pre[len];
+
+    while (r<=len && l<=r) {
+      
+        ll remain0 = r-l+1-(pre[r]-pre[l-1]);
+        ll extract1 = pre[l-1] + pre[len]-pre[r];
+        // cout << l<<" "<<r<< " "<<remain0<<" "<<extract1<<endl;
+        if (remain0<=extract1){
+            ans = min (ans,extract1);
+            r++;
+        }
+        else {
+            ans = min (ans,remain0);
+            l++;
+        }
+        // if (ans==0)break;
+
+    }
+
+    cout << ans<<endl;
+
+
+}
+
+int main(){
+    
+    // freopen("input.txt","r",stdin);
+    // freopen("output.txt","w",stdout);
+    io;
+    cin >> T;
+    while (T--)
+    solve();
+    return 0;
+}
+```
+
 
 </details>
-
-
+<!-- <details> -->
