@@ -21,29 +21,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"ccdesue.me","root":"/","images":"/images","scheme":"Muse","darkmode":"dark","version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="dp学习 A1. Burenka and Traditions (easy version)  维护多个操作信息， 单纯的贪心只能维护一组信息(如何想到dp) dp[i][j]代表前i-1个数字处理为0，且最后一个数字为j的最少方案数 &gt; dp一定要可以求出答案，在过程处理中记得考虑保留答案信息">
+    <meta name="description" content="二分相关算法学习 C. Binary String  边界看情况 开大开小或正好(out of boundary) prefix 和 suffix 数组含义和操作(不能转换)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cf-Dp">
-<meta property="og:url" content="https://ccdesue.me/2022/09/15/test/index.html">
+<meta property="og:title" content="Cf-Binary_search With Monotonicity">
+<meta property="og:url" content="https://ccdesue.me/2022/09/17/cf-binary-search/index.html">
 <meta property="og:site_name" content="Ciallo World">
-<meta property="og:description" content="dp学习 A1. Burenka and Traditions (easy version)  维护多个操作信息， 单纯的贪心只能维护一组信息(如何想到dp) dp[i][j]代表前i-1个数字处理为0，且最后一个数字为j的最少方案数 &gt; dp一定要可以求出答案，在过程处理中记得考虑保留答案信息">
+<meta property="og:description" content="二分相关算法学习 C. Binary String  边界看情况 开大开小或正好(out of boundary) prefix 和 suffix 数组含义和操作(不能转换)">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-09-15T04:50:52.000Z">
-<meta property="article:modified_time" content="2022-09-15T13:05:03.592Z">
+<meta property="article:published_time" content="2022-09-17T20:37:08.000Z">
+<meta property="article:modified_time" content="2022-09-18T04:40:28.580Z">
 <meta property="article:author" content="ccdesue">
 <meta property="article:tag" content="algorithm">
-<meta property="article:tag" content="dp">
+<meta property="article:tag" content="bs">
+<meta property="article:tag" content="mono">
+<meta property="article:tag" content="two_index">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://ccdesue.me/2022/09/15/test/">
+<link rel="canonical" href="https://ccdesue.me/2022/09/17/cf-binary-search/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ccdesue.me/2022/09/15/test/","path":"2022/09/15/test/","title":"Cf-Dp"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ccdesue.me/2022/09/17/cf-binary-search/","path":"2022/09/17/cf-binary-search/","title":"Cf-Binary_search With Monotonicity"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Cf-Dp | Ciallo World</title>
+<title>Cf-Binary_search With Monotonicity | Ciallo World</title>
   
 
 
@@ -147,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#dp%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.</span> <span class="nav-text">dp学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a1.-burenka-and-traditions-easy-version"><span class="nav-number">1.1.</span> <span class="nav-text">A1. Burenka and Traditions (easy version)</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.</span> <span class="nav-text">二分相关算法学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#c.-binary-string"><span class="nav-number">1.1.</span> <span class="nav-text">C. Binary String</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -211,7 +213,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ccdesue.me/2022/09/15/test/">
+    <link itemprop="mainEntityOfPage" href="https://ccdesue.me/2022/09/17/cf-binary-search/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -224,12 +226,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Cf-Dp | Ciallo World">
+      <meta itemprop="name" content="Cf-Binary_search With Monotonicity | Ciallo World">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Cf-Dp
+          Cf-Binary_search With Monotonicity
         </h1>
 
         <div class="post-meta-container">
@@ -241,7 +243,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-09-15 12:50:52 / 修改时间：21:05:03" itemprop="dateCreated datePublished" datetime="2022-09-15T12:50:52+08:00">2022-09-15</time>
+      <time title="创建时间：2022-09-18 04:37:08 / 修改时间：12:40:28" itemprop="dateCreated datePublished" datetime="2022-09-18T04:37:08+08:00">2022-09-18</time>
     </span>
 
   
@@ -254,12 +256,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="dp学习">dp学习</h2>
-<h3 id="a1.-burenka-and-traditions-easy-version"><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1718/A1">A1. Burenka and Traditions (easy version)</a></h3>
+        <h2 id="二分相关算法学习">二分相关算法学习</h2>
+<h3 id="c.-binary-string"><a target="_blank" rel="noopener" href="https://codeforces.ml/contest/1680/problem/C">C. Binary String</a></h3>
 <ol type="1">
-<li>维护多个操作信息， 单纯的贪心只能维护一组信息(<strong><em>如何想到dp</em></strong>)</li>
-<li>dp[i][j]代表前i-1个数字处理为0，且最后一个数字为j的<strong>最少</strong>方案数<br />
-&gt; dp一定要可以求出答案，在过程处理中记得考虑保留答案信息</li>
+<li>边界看情况 开大开小或正好(out of boundary)</li>
+<li>prefix 和 suffix 数组含义和操作(不能转换)</li>
 </ol>
 
     </div>
@@ -271,21 +272,20 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/algorithm/" rel="tag"># algorithm</a>
-              <a href="/tags/dp/" rel="tag"># dp</a>
+              <a href="/tags/bs/" rel="tag"># bs</a>
+              <a href="/tags/mono/" rel="tag"># mono</a>
+              <a href="/tags/two-index/" rel="tag"># two_index</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/09/03/pratise/" rel="prev" title="第一次训练赛 4h">
-                  <i class="fa fa-chevron-left"></i> 第一次训练赛 4h
+                <a href="/2022/09/15/test/" rel="prev" title="Cf-Dp">
+                  <i class="fa fa-chevron-left"></i> Cf-Dp
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/09/17/cf-binary-search/" rel="next" title="Cf-Binary_search With Monotonicity">
-                  Cf-Binary_search With Monotonicity <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -342,7 +342,7 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":false,"timeout":10,"priority":true,"url":"https://ccdesue.me/2022/09/15/test/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":false,"timeout":10,"priority":true,"url":"https://ccdesue.me/2022/09/17/cf-binary-search/"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 
 </body>
