@@ -28,7 +28,10 @@ tags: linux os
 > 用 ./grade 输出调试
 
 
-### code:
+
+<details>
+   <summary>**code**</summary>
+   
 ```c++
 #include "kernel/types.h"
 #include "user/user.h"
@@ -96,3 +99,6 @@ int main(int argc, char *argv[])
 }
 
 ```
+
+</details>
+
