@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Cf-Dp</title>
+    <url>/2022/09/15/cf-dp/</url>
+    <content><![CDATA[<h2 id="dp学习">dp学习</h2>
+<h3 id="a1.-burenka-and-traditions-easy-version"><a href="https://codeforces.com/problemset/problem/1718/A1">A1. Burenka and Traditions (easy version)</a></h3>
+<blockquote>
+<p>对边界信息敏感 快速贪心 1. 维护多个操作信息， 单纯的贪心只能维护一组信息(<strong><em>如何想到dp</em></strong>) 2. dp[i][j]代表前i-1个数字处理为0，且最后一个数字为j的<strong>最少</strong>方案数<br />
+dp一定要可以求出答案，在过程处理中记得考虑保留答案信息</p>
+</blockquote>
+<details>
+<p><summary><strong>code</strong></summary></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;PII;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> endl <span class="string">&#x27;\n&#x27;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> io ios::sync_with_stdio(false),cin.tie(0)</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"> </span><br><span class="line"><span class="type">int</span> n,m,k,T;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">5e3</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"><span class="type">int</span> dp[N][<span class="number">8193</span>];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;++i) cin &gt;&gt; a[i];</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 初始化</span></span><br><span class="line">    <span class="comment">// for (int i = 0;i&lt;8192;++i)[</span></span><br><span class="line">    <span class="comment">//     dp[1][i]=1;</span></span><br><span class="line">    <span class="comment">// ]</span></span><br><span class="line">    <span class="comment">// dp[1][a[1]]=0;</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>;j&lt;<span class="number">8192</span>;++j)&#123;</span><br><span class="line">            dp[i][j] = dp[i<span class="number">-1</span>][<span class="number">0</span>] + (j!=a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>;j&lt;<span class="number">8192</span>;++j)&#123;</span><br><span class="line">            dp[i][j^a[i]] = <span class="built_in">min</span> (dp[i<span class="number">-1</span>][j]+<span class="number">1</span>,dp[i][j^a[i]]);</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    cout &lt;&lt; dp[n][<span class="number">0</span>]&lt;&lt;endl;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// freopen(&quot;input.txt&quot;,&quot;r&quot;,stdin);</span></span><br><span class="line">    <span class="comment">// freopen(&quot;output.txt&quot;,&quot;w&quot;,stdout);</span></span><br><span class="line">    io;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">    <span class="built_in">solve</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+]]></content>
+      <tags>
+        <tag>algorithm</tag>
+        <tag>dp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Cf-Binary_search With Monotonicity</title>
     <url>/2022/09/17/cf-binary-search/</url>
     <content><![CDATA[<h2 id="二分相关算法学习">二分相关算法学习</h2>
@@ -24,25 +43,6 @@
         <tag>bs</tag>
         <tag>mono</tag>
         <tag>two_point</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cf-Dp</title>
-    <url>/2022/09/15/cf-dp/</url>
-    <content><![CDATA[<h2 id="dp学习">dp学习</h2>
-<h3 id="a1.-burenka-and-traditions-easy-version"><a href="https://codeforces.com/problemset/problem/1718/A1">A1. Burenka and Traditions (easy version)</a></h3>
-<blockquote>
-<p>对边界信息敏感 快速贪心 1. 维护多个操作信息， 单纯的贪心只能维护一组信息(<strong><em>如何想到dp</em></strong>) 2. dp[i][j]代表前i-1个数字处理为0，且最后一个数字为j的<strong>最少</strong>方案数<br />
-dp一定要可以求出答案，在过程处理中记得考虑保留答案信息</p>
-</blockquote>
-<details>
-<p><summary><strong>code</strong></summary></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;PII;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> endl <span class="string">&#x27;\n&#x27;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> io ios::sync_with_stdio(false),cin.tie(0)</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"> </span><br><span class="line"><span class="type">int</span> n,m,k,T;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">5e3</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"><span class="type">int</span> dp[N][<span class="number">8193</span>];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;++i) cin &gt;&gt; a[i];</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 初始化</span></span><br><span class="line">    <span class="comment">// for (int i = 0;i&lt;8192;++i)[</span></span><br><span class="line">    <span class="comment">//     dp[1][i]=1;</span></span><br><span class="line">    <span class="comment">// ]</span></span><br><span class="line">    <span class="comment">// dp[1][a[1]]=0;</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>;j&lt;<span class="number">8192</span>;++j)&#123;</span><br><span class="line">            dp[i][j] = dp[i<span class="number">-1</span>][<span class="number">0</span>] + (j!=a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>;j&lt;<span class="number">8192</span>;++j)&#123;</span><br><span class="line">            dp[i][j^a[i]] = <span class="built_in">min</span> (dp[i<span class="number">-1</span>][j]+<span class="number">1</span>,dp[i][j^a[i]]);</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    cout &lt;&lt; dp[n][<span class="number">0</span>]&lt;&lt;endl;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// freopen(&quot;input.txt&quot;,&quot;r&quot;,stdin);</span></span><br><span class="line">    <span class="comment">// freopen(&quot;output.txt&quot;,&quot;w&quot;,stdout);</span></span><br><span class="line">    io;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">    <span class="built_in">solve</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</details>
-]]></content>
-      <tags>
-        <tag>algorithm</tag>
-        <tag>dp</tag>
       </tags>
   </entry>
   <entry>
@@ -102,7 +102,7 @@ dp一定要可以求出答案，在过程处理中记得考虑保留答案信息
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;hello_world&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="test-image">test image</h2>
 <figure>
-<img src="/images/try.jpg" alt="" /><figcaption>sad</figcaption>
+<img src="/images/try.jpg" alt="" /><figcaption>try</figcaption>
 </figure>
 ]]></content>
   </entry>
