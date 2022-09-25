@@ -22,6 +22,9 @@ mathjax: true
 1. 借位的代码实现， 被借位要减1
 2. qpow (base,idx) 提供的参数反了
 
+<details>
+   <summary>**code**</summary>
+   
 ```c++
 #include<bits/stdc++.h>
 using namespace std;
@@ -134,3 +137,6 @@ int main(){
     return 0;
 }
 ```
+
+
+</details>

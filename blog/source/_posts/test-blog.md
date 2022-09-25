@@ -20,4 +20,4 @@ int main(){
 ```
 
 ## test image
-![sad](try.jpg)
+![try](/images/try.jpg)
